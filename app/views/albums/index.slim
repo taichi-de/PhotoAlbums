@@ -1,19 +1,21 @@
 p#notice= notice
-.subtitle Albums
+.section
+  .container
+    p.title.is-2 Albums
 
-table
-  thead
-    tr
-      th Title
-      th Discription
-      th colspan="3" 
-  tbody
-    - @albums.each do |album|
-      tr
-        td = album.title
-        td = album.discription
-        td = link_to 'Show', album, :class => "button is-info is-light"
-        td = link_to 'Edit', edit_album_path(album), :class => "button is-warning is-light"
-        td = link_to 'Destroy', album, method: :delete, data: {confirm: 'Are you sure?'}, :class => "button is-danger is-light"
-br
-= link_to 'New Album', new_album_path, :class => "button is-focused"
+    table.table.is-striped.is-narrow.is-hoverable.is-fullwidth
+      thead
+        tr
+          th Title
+          th Discription
+          th colspan="3" 
+      tbody
+        - @albums.each do |album|
+          tr
+            td = album.title
+            td = album.discription
+            td = link_to 'Show', album, :class => "button is-info is-light"
+            td = link_to 'Edit', edit_album_path(album), :class => "button is-warning is-light"
+            td = link_to 'Destroy', album, method: :delete, data: {confirm: 'Are you sure?'}, :class => "button is-danger is-light"
+    br
+    = link_to 'New Album', new_album_path, :class => "button is-focused"

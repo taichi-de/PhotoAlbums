@@ -9,13 +9,14 @@
           li= message
   .field
     = form.label :title
-    = form.text_field :title
+    = form.text_field :title, :class => "input is-focused mt-2"
   .field
     = form.label :images
-    = form.file_field :images, multiple: true
+    = form.file_field :images, multiple: true, :class => "mt-2"
     br/
   .field
     = form.label :discription
-    = form.text_area :discription
+    = form.text_area :discription, :class => "input is-focused mt-2"
   .actions
-    = form.submit 'Upload new pictures'
+    = form.submit 'Upload new pictures', :class => "button is-primary mt-4"
+= link_to 'Back', albums_path, :class => "button is-hovered mr-4 mt-2"

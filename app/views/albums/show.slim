@@ -1,12 +1,18 @@
 p#notice= notice
-p
-  strong Title:
-  = @album.title
-p
-  strong Discription:
-  = @album.discription
-- (0...@album.images.count).each do |image|
-  = image_tag(@album.thumbnail(image))
-= link_to 'Edit', edit_album_path(@album)
-| \
-= link_to 'Back', albums_path
+.section
+  .container
+    p.title.is-2
+      strong.has-text-grey.mr-4 Title:
+      = @album.title
+    p.subtitle.is-3
+      strong.has-text-grey.mr-4.my-6 Discription:
+      = @album.discription
+
+    .columns.is-desktop style="flex-wrap: wrap;"
+      - (0...@album.images.count).each do |image|
+        = image_tag(@album.thumbnail(image), class:"column is-one-third")
+
+    .w-100
+      = link_to 'Edit', edit_album_path(@album), :class => "button is-hovered mr-4"
+      = link_to 'Back', albums_path, :class => "button is-hovered"
+

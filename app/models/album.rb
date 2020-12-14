@@ -5,7 +5,7 @@ class Album < ApplicationRecord
   validate :image_type
 
   def thumbnail input
-    return self.images[input].variant(resize: '400x300!').processed
+    self.images[input].variant(resize: '300x300!').processed
   end
 
   private
